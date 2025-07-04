@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="100dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="#E7C86D"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="16dp"
+        app:cardUseCompatPadding="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_view_message"
+            android:layout_margin="16dp"
+            android:textSize="18sp"
+            android:textColor="#001968"
+            tools:text="This is only example message, Lorem Ipsum 2025,This"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button_send"
+        android:layout_marginTop="16dp"
+        android:text="Wyslij wiadomosc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

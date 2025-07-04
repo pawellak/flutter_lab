@@ -88,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> implements ReverseMessageApi {
               },
               child: Text("Call GreatApi().greet()"),
             ),
+            AndroidView(viewType: ''),
             Text("_anotherMessagge: $_anotherMessagge"),
             TextButton(onPressed: _sendMessageToNative, child: Text("Send message to native")),
             Text("_callbackFromNative: $_callbackFromNative"),
