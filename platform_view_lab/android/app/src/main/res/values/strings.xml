@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="write_some_age">Write some Age</string>
+    <string name="type_here_enter_to_close">Type here, Enter to close</string>
+    <string name="wyslij_wiadomosc">Wyslij wiadomosc</string>
+</resources>
