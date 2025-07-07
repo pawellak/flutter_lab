@@ -44,7 +44,7 @@ class FLNativeView: NSObject, FlutterPlatformView {
     {
         _view = UIView()
         super.init()
-        createNativeView(view: _view, arguments: args)
+        createNativeView(view: _view, arguments: args,mess: messenger!)
         
     }
     
@@ -52,12 +52,13 @@ class FLNativeView: NSObject, FlutterPlatformView {
         return _view
     }
     
-    func createNativeView(view _view : UIView, arguments args: Any?) {
+    func createNativeView(view _view : UIView, arguments args: Any?,mess _mess : FlutterBinaryMessenger) {
         
         let keyWindows = UIApplication.shared.windows.first(where: { $0.isKeyWindow}) ?? UIApplication.shared.windows.first
         let topController = keyWindows?.rootViewController
         
-        let vc = UIHostingController(rootView: SwiftUIView())
+        
+        let vc = UIHostingController(rootView: SwiftUIView(controller: _mess))
         let swiftUIView = vc.view!
         
         swiftUIView.translatesAutoresizingMaskIntoConstraints = false
