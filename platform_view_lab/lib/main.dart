@@ -1,5 +1,3 @@
-import 'dart:io' show Platform;
-
 import 'package:flutter/foundation.dart' show defaultTargetPlatform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +18,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> implements ReverseMessageApi {
-  String _cityFromAndroid = '';
+  String _cityFromNative = '';
   String _roundedAge = '';
 
   @override
@@ -32,7 +30,7 @@ class _MyAppState extends State<MyApp> implements ReverseMessageApi {
   @override
   Future<int> getTemperatureInCityFromFlutter(String city) async {
     setState(() {
-      _cityFromAndroid = city;
+      _cityFromNative = city;
     });
     if (city == "Warsaw") {
       return 10;
@@ -66,8 +64,9 @@ class _MyAppState extends State<MyApp> implements ReverseMessageApi {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
+            SizedBox(height: 32),
             Expanded(child: _getNativeView()),
-            Text("City from Android: $_cityFromAndroid"),
+            Text("City from Native: $_cityFromNative"),
             Text("Ronded Age: $_roundedAge"),
             TextField(
               onChanged: (value) {
@@ -90,7 +89,7 @@ class _MyAppState extends State<MyApp> implements ReverseMessageApi {
           creationParams: {},
         );
       case TargetPlatform.iOS:
-        return UiKitView(viewType: mySwiftUIView, creationParamsCodec: StandardMessageCodec(), creationParams: {});
+        return Container(color: Colors.red.withAlpha(30), width: double.infinity, child: UiKitView(viewType: mySwiftUIView, creationParamsCodec: StandardMessageCodec(), creationParams: {}));
       default:
         return Text("");
     }
